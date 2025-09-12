@@ -15,7 +15,7 @@ const ProductMain = new mongoose.Schema({
   Price: { type: Number },
   Season: { type: String },
   Category: { type: String },
-  embedding: { type: [Number] } 
-});
+  embedding: { type: [Number] }
+}, { timestamps: true });
 
 module.exports = mongoose.model("Outfit", ProductMain);

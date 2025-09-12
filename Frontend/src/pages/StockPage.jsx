@@ -1,21 +1,20 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 
 
-const DropdownItem = ({ title, data }) => {
+const DropdownItem = React.memo(({ title, data }) => {
   const [open, setOpen] = useState(false);
-
+  const handleToggle = useCallback(() => setOpen((prev) => !prev), []);
+  const entries = useMemo(() => Object.entries(data), [data]);
   return (
     <div className="bg-gray-300 text-black px-4 py-3 rounded-md w-full sm:w-64 shadow-sm">
       <div
-        onClick={() => setOpen(!open)}
+        onClick={handleToggle}
         className="flex justify-between items-center cursor-pointer"
       >
         <span className="text-sm sm:text-base">{title}</span>
         <svg
-          className={`w-4 h-4 text-blue-500 transition-transform duration-200 ${
-            open ? "rotate-180" : "rotate-0"
-          }`}
+          className={`w-4 h-4 text-blue-500 transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`}
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -26,7 +25,7 @@ const DropdownItem = ({ title, data }) => {
       </div>
       {open && (
         <div className="mt-2 text-sm pl-2 text-black">
-          {Object.entries(data).map(([key, value]) => (
+          {entries.map(([key, value]) => (
             <div key={key} className="py-0.5">
               {key}: {value}
             </div>
@@ -35,17 +34,15 @@ const DropdownItem = ({ title, data }) => {
       )}
     </div>
   );
-};
+});
 
-const RestockItem = ({ label, value, onChange }) => {
+const RestockItem = React.memo(({ label, value, onChange }) => {
   const [editing, setEditing] = useState(false);
   const [input, setInput] = useState(value);
-
-  const handleSave = () => {
+  const handleSave = useCallback(() => {
     onChange(parseInt(input) || 0);
     setEditing(false);
-  };
-
+  }, [input, onChange]);
   return (
     <div className="bg-gray-300 text-black px-4 py-3 rounded-md w-full sm:w-64">
       {!editing ? (
@@ -77,18 +74,16 @@ const RestockItem = ({ label, value, onChange }) => {
       )}
     </div>
   );
-};
+});
 
-const StockPage = () => {
+const StockPage = React.memo(() => {
   const [tab, setTab] = useState("excel");
-
   const [data, setData] = useState({
     men: { Pants: 12, Shirts: 24 },
     women: { Dresses: 18, Tops: 20, Kurthas: 23 },
     kids: { Pants: 10, Shirts: 15 },
   });
-
-  const handleUpdate = (section, item, value) => {
+  const handleUpdate = useCallback((section, item, value) => {
     setData((prev) => ({
       ...prev,
       [section]: {
@@ -96,7 +91,7 @@ const StockPage = () => {
         [item]: value,
       },
     }));
-  };
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black space-y-6 text-white px-4">
@@ -164,6 +159,6 @@ const StockPage = () => {
       </div>
     </div>
   );
-};
+});
 
 export default StockPage;

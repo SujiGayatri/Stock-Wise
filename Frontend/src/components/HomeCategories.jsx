@@ -23,7 +23,7 @@ const HomeCategories = () => {
   const renderCard = (item, type) => (
     <div className="card visible">
       <div className="card-bg-text">{item.label}</div>
-      <img src={item.image} alt={item.label} className="card-image" />
+  <img src={item.image} alt={item.label} className="card-image" loading="lazy" />
       <Link to="/Products"><button
         className={`explore-btn ${
           type === "Men" ? "explore-btn-men" : "explore-btn-women"

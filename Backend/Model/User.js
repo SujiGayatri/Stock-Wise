@@ -6,10 +6,10 @@ const UserSchema = new mongoose.Schema({
   password:     { type: String, required: true },
   mobileNumber: { type: String, required: true },
   employeeId:   { type: String, required: true },
- resetPasswordToken: { type: String, default: null },
-resetPasswordExpires: { type: Date, default: null },
-otp: { type: String },
+  resetPasswordToken: { type: String, default: null },
+  resetPasswordExpires: { type: Date, default: null },
+  otp: { type: String },
   otpExpires: { type: Date }
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('User', UserSchema);

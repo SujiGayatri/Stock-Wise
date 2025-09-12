@@ -5,38 +5,33 @@ const User = require('../Model/User');
 require('dotenv').config();
 
 
+// Helper validation functions
+const isValidPassword = (password) =>
+  password.length >= 8 &&
+  /[a-z]/.test(password) &&
+  /[A-Z]/.test(password) &&
+  /\d/.test(password) &&
+  /[^A-Za-z0-9]/.test(password);
+
+const isValidFullName = (name) => /^[a-zA-Z ]+$/.test(name);
+const isValidEmail = (email) => /^\S+@\S+\.\S+$/.test(email);
+const isValidMobile = (mobile) => mobile.length === 10 && /^\d+$/.test(mobile);
+
 exports.signup = async (req, res) => {
   const { fullName, email, password, mobileNumber, employeeId } = req.body;
   try {
-    if (!fullName || !email || !password || !mobileNumber || !employeeId) {
+    if (![fullName, email, password, mobileNumber, employeeId].every(Boolean))
       return res.status(400).json({ message: "All fields are required" });
-    }
-
-    if (password.length < 8 ||
-      !/[a-z]/.test(password) ||
-      !/[A-Z]/.test(password) ||
-      !/\d/.test(password) ||
-      !/[^A-Za-z0-9]/.test(password)) {
-      return res.status(400).json({
-        message: "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character"
-      });
-    }
-
-    if (!/^[a-zA-Z ]+$/.test(fullName)) {
+    if (!isValidPassword(password))
+      return res.status(400).json({ message: "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character" });
+    if (!isValidFullName(fullName))
       return res.status(400).json({ message: "Full name can only contain letters and spaces" });
-    }
-
-    if (!/^\S+@\S+\.\S+$/.test(email)) {
+    if (!isValidEmail(email))
       return res.status(400).json({ message: "Invalid email format" });
-    }
-
-    if (mobileNumber.length !== 10 || !/^\d+$/.test(mobileNumber)) {
+    if (!isValidMobile(mobileNumber))
       return res.status(400).json({ message: "Invalid Mobile Number" });
-    }
-
     const existingUser = await User.findOne({ email });
     if (existingUser) return res.status(400).json({ message: "User already exists" });
-
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({ fullName, email, password: hashedPassword, mobileNumber, employeeId });
     await newUser.save();

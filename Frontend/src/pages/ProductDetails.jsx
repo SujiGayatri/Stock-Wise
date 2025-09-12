@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import "../ProductDetails.css";
 import productImg from "../assets/ProductDetails/hoodie1.jpg";
 import cardImg1 from "../assets/ProductDetails/hoodie2.jpg";
@@ -20,10 +20,10 @@ const product = {
 };
 
 
-const ProductPage = () => {
+const ProductPage = React.memo(() => {
   const [showDetails, setShowDetails] = useState(false);
 
-  const settings = {
+  const settings = useMemo(() => ({
     infinite: true,
     autoplay: true,
     autoplaySpeed: 2000,
@@ -37,13 +37,13 @@ const ProductPage = () => {
       { breakpoint: 768, settings: { slidesToShow: 2 } },
       { breakpoint: 480, settings: { slidesToShow: 1 } },
     ],
-  };
+  }), []);
 
   return (
     <div className="product-container">
       <div className="product-main">
         <div className="left">
-          <img src={productImg} alt="Sweater" />
+          <img src={productImg} alt="Sweater" loading="lazy" />
         </div>
         <div className="product-right">
           <h3>{product.title}</h3>
@@ -134,6 +134,6 @@ const ProductPage = () => {
       </div>
     </div>
   );
-};
+});
 
 export default ProductPage;

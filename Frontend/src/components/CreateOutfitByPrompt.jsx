@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useRef, useMemo } from "react";
 import styles from "../CreateOutfitByPrompt.module.css";
 import userImage from "../assets/StylePage/user.jpg";
 import orbImage from "../assets/StylePage/orb.png";
@@ -8,39 +8,60 @@ import { FiSearch, FiEdit, FiTrash2, FiPlus, FiMenu } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import Loader from "../pages/Loader";
 
-const CreateOutfitByPrompt = () => {
+const sidebarHistory = [
+  "Today",
+  "Yesterday",
+  "2 days ago",
+  "3 days ago",
+  "4 days ago",
+  "5 days ago",
+  "6 days ago",
+];
+
+const CreateOutfitByPrompt = React.memo(() => {
   const navigate = useNavigate();
-  const [activeButton, setActiveButton] = useState("prompt");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [prompt, setPrompt] = useState("");
-  const [suggestions, setSuggestions] = useState([]);
-  const [isLoading,setIsLoading]=useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSuggest = async () => {
-  try {
-    setIsLoading(true);
-    const res = await fetch("http://localhost:5000/api/suggest", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt }),
-    });
-    const data = await res.json();
-    
-    const outfitRes = await fetch("http://localhost:5000/api/outfits");
-    const allOutfits = await outfitRes.json();
+  // Simple in-memory cache for API results
+  const suggestCache = useRef({});
+  const outfitsCache = useRef(null);
 
-    const matched = allOutfits.filter((outfit) => data.ids.includes(outfit._id));
-    setSuggestions(matched);
+  const memoPrompt = useMemo(() => prompt, [prompt]);
 
-    navigate("/Products", { state: { suggestions: matched } });
-  } catch (error) {
-    console.error("Error fetching suggestions:", error);
-    setIsLoading(false);
-  }
-  // finally{
-  //   setIsLoading(false);
-  // }
-};
+  const handleSuggest = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      let data;
+      if (suggestCache.current[memoPrompt]) {
+        data = suggestCache.current[memoPrompt];
+      } else {
+        const res = await fetch("http://localhost:5000/api/suggest", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt: memoPrompt }),
+        });
+        data = await res.json();
+        suggestCache.current[memoPrompt] = data;
+      }
+
+      let allOutfits;
+      if (outfitsCache.current) {
+        allOutfits = outfitsCache.current;
+      } else {
+        const outfitRes = await fetch("http://localhost:5000/api/outfits");
+        allOutfits = await outfitRes.json();
+        outfitsCache.current = allOutfits;
+      }
+
+      const matched = allOutfits.filter((outfit) => data.ids.includes(outfit._id));
+      navigate("/Products", { state: { suggestions: matched } });
+    } catch (error) {
+      console.error("Error fetching suggestions:", error);
+      setIsLoading(false);
+    }
+  }, [memoPrompt, navigate]);
 
 
   return (
@@ -81,15 +102,7 @@ const CreateOutfitByPrompt = () => {
           </span>
         </div>
         <div className={styles.history}>
-          {[
-            "Today",
-            "Yesterday",
-            "2 days ago",
-            "3 days ago",
-            "4 days ago",
-            "5 days ago",
-            "6 days ago",
-          ].map((day, index) => (
+          {sidebarHistory.map((day, index) => (
             <div key={index}>
               <div className={styles.day}>{day}</div>
               <div className={styles.entry}>All I dream of is your eyes...</div>
@@ -109,12 +122,12 @@ const CreateOutfitByPrompt = () => {
           )}
           <h2 className={styles.logo}>STOCKWISE</h2>
           <div className={styles.avatar}>
-            <img src={userImage} alt="User Avatar" />
+            <img src={userImage} alt="User Avatar" loading="lazy" />
           </div>
         </div>
 
         <div className={styles.centerContent}>
-          <img src={orbImage} alt="Orb" className={styles.orb} />
+          <img src={orbImage} alt="Orb" className={styles.orb} loading="lazy" />
           <h1 className={styles.welcome}>Welcome Back Mohan!!!</h1>
           <p className={styles.subtitle}>
             Which combination do you wanna create today?
@@ -137,6 +150,6 @@ const CreateOutfitByPrompt = () => {
     )}
     </>
   );
-};
+});
 
 export default CreateOutfitByPrompt;

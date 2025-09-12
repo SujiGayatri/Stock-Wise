@@ -14,39 +14,35 @@ const weights = {
   Category: 2,
 };
 
+
+const scoreOutfit = (outfit, prompt) => {
+  let score = 0;
+  for (const key in weights) {
+    const value = outfit[key];
+    if (Array.isArray(value)) {
+      value.forEach((val) => {
+        if (prompt.includes(val.toLowerCase())) score += weights[key];
+      });
+    } else if (typeof value === "string" && prompt.includes(value.toLowerCase())) {
+      score += weights[key];
+    }
+  }
+  return score;
+};
+
 exports.getSuggestions = async (req, res) => {
   const prompt = req.body.prompt?.toLowerCase() || "";
-
   try {
     const outfits = await Outfit.find();
-
-    const scoredOutfits = outfits.map((outfit) => {
-      let score = 0;
-
-      for (const key in weights) {
-        const value = outfit[key];
-
-        if (Array.isArray(value)) {
-          value.forEach((val) => {
-            if (prompt.includes(val.toLowerCase())) {
-              score += weights[key];
-            }
-          });
-        } else if (typeof value === "string" && prompt.includes(value.toLowerCase())) {
-          score += weights[key];
-        }
-      }
-
-      return { id: outfit._id, score };
-    });
-
+    const scoredOutfits = outfits.map((outfit) => ({
+      id: outfit._id,
+      score: scoreOutfit(outfit, prompt)
+    }));
     const threshold = 1;
-
     const matchedIds = scoredOutfits
       .filter((item) => item.score >= threshold)
       .sort((a, b) => b.score - a.score)
       .map((item) => item.id);
-
     res.json({ ids: matchedIds });
   } catch (err) {
     console.error("Error in getSuggestions:", err);
@@ -67,16 +63,12 @@ exports.getAllOutfits = async (req, res) => {
 exports.matchOutfit = async (req, res) => {
   try {
     const { targetTypes, colors } = req.body;
-
-    if (!targetTypes || !colors || !targetTypes.length || !colors.length) {
+    if (!targetTypes?.length || !colors?.length)
       return res.status(400).json({ message: "targetTypes and colors are required." });
-    }
-
     const matchedProducts = await Outfit.find({
       Type: { $in: targetTypes },
       Color: { $in: colors }
     }).select("Image Name Price Type Category Color");
-
     res.json({ matches: matchedProducts });
   } catch (error) {
     console.error("Error matching outfits:", error);

@@ -1,4 +1,4 @@
-import React,{useState,useRef} from "react";
+import React,{useState,useRef, useCallback, useMemo} from "react";
 import styles from '../MatchOutfitByImage.module.css';
 import Scanner from '../assets/StylePage/Scanner.png';
 import ColorThief from 'colorthief';
@@ -9,7 +9,7 @@ import { getClosestColorName, getRelatedColors } from '../Utils/BasicColors';
 import { resolveDressCategory } from '../Utils/DressTypeMapper';
 import { useNavigate } from 'react-router-dom';
 import Loader from "../pages/Loader";
-const MatchOutfitByImage=()=>{
+const MatchOutfitByImage = React.memo(() => {
     const [activeTab, setActiveTab] = useState('upload');
     const [isLoading, setIsLoading] = useState(false);
     const [isImageLoaded, setIsImageLoaded] = useState(false);
@@ -21,19 +21,25 @@ const MatchOutfitByImage=()=>{
     const imgRef = useRef(null);
 
     const navigate = useNavigate();
-    const handleFileChange = (e) => {
+    const fileCache = useRef({});
+    const handleFileChange = useCallback((e) => {
       const file = e.target.files[0];
       if (!file) return;
-       const MAX_SIZE_MB = 10;
+      const MAX_SIZE_MB = 10;
       if (file.size > MAX_SIZE_MB * 1024 * 1024) {
         alert(`File too large. Max allowed size is ${MAX_SIZE_MB}MB.`);
         return;
       }
       setIsImageLoaded(false);
-      const imageURL = URL.createObjectURL(file);
-      setFileName(file.name);
-      imgRef.current.src = imageURL;
-    };
+      if (fileCache.current[file.name]) {
+        imgRef.current.src = fileCache.current[file.name];
+      } else {
+        const imageURL = URL.createObjectURL(file);
+        setFileName(file.name);
+        imgRef.current.src = imageURL;
+        fileCache.current[file.name] = imageURL;
+      }
+    }, []);
   
     const handleImageLoad = () => {
       console.log('Image loaded, waiting for button click to analyze...');
@@ -234,7 +240,7 @@ const MatchOutfitByImage=()=>{
           ) : (
             <div className={styles.uploadBox}>
               <p>📷 Activate webcam to scan your outfit in real-time.</p>
-              <img src={Scanner} alt="Scanner" className={styles.Scanner} />
+              <img src={Scanner} alt="Scanner" className={styles.Scanner} loading="lazy" />
               <button className={styles.matchButton}>Start Scanner</button>
             </div>
           )}
@@ -242,6 +248,6 @@ const MatchOutfitByImage=()=>{
       </div>
       )}
     </div>
-    )
-}
-export default MatchOutfitByImage
+  )
+});
+export default MatchOutfitByImage;

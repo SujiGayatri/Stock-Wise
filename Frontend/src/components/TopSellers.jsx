@@ -1,10 +1,11 @@
+import React, { useMemo } from "react";
 import products from "./TopSellersData";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {Link} from 'react-router-dom';
-const TopSellers = () => {
-  const settings = {
+import { Link } from 'react-router-dom';
+const TopSellers = React.memo(() => {
+  const settings = useMemo(() => ({
     infinite: true,
     autoplay: true,
     autoplaySpeed: 2000,
@@ -27,16 +28,16 @@ const TopSellers = () => {
         settings: { slidesToShow: 1 },
       },
     ],
-  };
+  }), []);
+  const categories = useMemo(() => ["All", "Men", "Women", "Kids"], []);
   return (
     <div className="TopSellers">
       <div className="TopSellersHead">
         <label className="HomeFont2">TOP SELLERS</label>
         <div className="CategoriesButtons">
-          <button className="TopSellersButton">All</button>
-          <button className="TopSellersButton">Men</button>
-          <button className="TopSellersButton">Women</button>
-          <button className="TopSellersButton">Kids</button>
+          {categories.map((cat) => (
+            <button key={cat} className="TopSellersButton">{cat}</button>
+          ))}
         </div>
       </div>
       <div className="TopSellersScroll">
@@ -63,6 +64,6 @@ const TopSellers = () => {
       </div>
     </div>
   );
-};
+});
 
 export default TopSellers;

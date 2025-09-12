@@ -1,19 +1,16 @@
-import React from "react";
 import HomeHero from "./HomeHero";
 import HomeCategories from './HomeCategories';
 import HomeOccasions from './HomeOccasions';
 import TopSellers from "./TopSellers";
-import '../All.css'
+import '../All.css';
 
-const HomeContent = () => {
-    return (
-        <div className="HomePageContent">
-            <HomeHero />
-            <HomeCategories />
-            <HomeOccasions />
-            <TopSellers />
-        </div>
-    );
-}
+const HomeContent = () => (
+    <div className="HomePageContent">
+        <HomeHero />
+        <HomeCategories />
+        <HomeOccasions />
+        <TopSellers />
+    </div>
+);
 
 export default HomeContent;
