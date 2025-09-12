@@ -9,6 +9,7 @@ import { getClosestColorName, getRelatedColors } from '../Utils/BasicColors';
 import { resolveDressCategory } from '../Utils/DressTypeMapper';
 import { useNavigate } from 'react-router-dom';
 import Loader from "../pages/Loader";
+import BASE_URL from '../Utils/config';
 const MatchOutfitByImage = React.memo(() => {
     const [activeTab, setActiveTab] = useState('upload');
     const [isLoading, setIsLoading] = useState(false);
@@ -142,16 +143,16 @@ const MatchOutfitByImage = React.memo(() => {
     }
 
     // Fetch matching outfits
-    const response = await fetch("http://localhost:5000/api/match-outfit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        targetTypes: matchTypes,
-        colors: relatedColors,
-      }),
-    });
+    const response = await fetch(`${BASE_URL}/api/match-outfit`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          targetTypes: matchTypes,
+          colors: relatedColors,
+        }),
+      });
 
     if (!response.ok) {
       throw new Error("Failed to fetch outfit matches");
