@@ -1,0 +1,441 @@
+.wrapper {
+  padding: 3rem;
+  color: white;
+  background-color: #121212;
+  padding : 20px 100px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1d1d1d;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  height: 450px;
+}
+
+.textSection {
+  width: 50%;
+}
+
+.textSection h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.textSection p {
+  font-size: 1rem;
+  /* line-height: 1.6; */
+  padding-right: 6px;
+}
+
+.uploadSection {
+  width: 45%;
+  height: 400px;
+  /* padding: 10px; */
+  background-color: #e5e5e5;
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #000;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+}
+.uploadBox {
+  background-color: #e8e8e8;
+  color: black;
+  /* padding: 20px; */
+  border-radius: 16px;
+  width: 90%;
+  /* height: auto; */
+  /* max-width: 400px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addButton {
+  /* background-color: #2b2b36; */
+  border:2px solid #1B4F97;
+  color: #1B4F97;
+  font-size: 24px;
+  font-weight : 700;
+  width: 35px;
+  height: 35px;
+  padding-bottom: 5.9px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dropArea {
+  border: 2px dashed #aaa;
+  padding: 20px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.warning {
+  color: red;
+  font-size: 12px;
+}
+
+.fileInput {
+  margin-top: 8px;
+}
+
+.inputRow {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.inputRow input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.drop{
+    margin: 4px;
+}
+.tabSwitch {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.activeTab, .inactiveTab {
+  flex: 1;
+  padding: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+}
+
+.activeTab {
+  background-color: #fff;
+  color: #000;
+}
+
+.inactiveTab {
+  background-color: #d3d3d3;
+  color: #555;
+}
+
+/* .uploadBox {
+  background-color: #fafafa;
+  border: 2px dashed #aaa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+} */
+
+.fileInput {
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.fileLimit {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.fileName {
+  margin-top: 0.5rem;
+  display: block;
+  color: #333;
+}
+
+.matchButton {
+  margin-top: 0.7rem;
+  padding: 0.5rem 1.7rem;
+  background-color: #1d1d1d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.matchButton:hover {
+  background-color: #000;
+}
+.Scanner{
+    width: 150px;
+    height: 150px;
+}
+.resultBlock {
+  padding: 1rem 0;
+  height : 500px;
+  width : 100%;
+}
+
+.resultBlock h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.resultBox {
+  width : 100%;
+  height: 450px;
+  background-color: #2a2a2a;
+  border-radius: 12px;
+}
+
+
+.imagePreviewWrapper {
+  width: 100%;
+  height: 50px;
+  border: 2px solid #aaa;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+  /* flex-wrap: wrap; */
+  background-color: #111;
+  color: #fff;
+}
+
+.imagePreviewLeft {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.previewImage {
+  /* max-width: 100px; */
+  height: 40px;
+  padding: 0.2rem 0.32rem;
+  border-radius: 8px;
+  display: block;
+}
+
+.fileName {
+  font-size: 0.9rem;
+  /* max-width: 160px; */
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+  /* white-space: nowrap; */
+}
+
+.colorDisplay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.rgbText {
+  font-size: 0.85rem;
+}
+
+.colorBox {
+  width: 70px;
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 8px;
+  margin-right: 5px;
+}
+
+
+/* Media Queries */
+@media (max-width: 600px) {
+  .imagePreviewWrapper {
+    height: auto;
+    padding: 0.3rem;
+    gap: 10px;
+  }
+
+  .imagePreviewLeft {
+    justify-content: flex-start;
+    gap: 1px;
+  }
+  .previewImage{
+    padding: 0.1rem 0.15rem;
+  }
+  .colorDisplay {
+    gap: 3px;
+  }
+
+  .fileName {
+    max-width: 100%;
+    font-size: 0.7rem;
+    color: white;
+  }
+
+  .rgbText {
+    font-size: 0.7rem;
+  }
+  .colorBox{
+    width: 40px;
+    height: 35px;
+  }
+}
+
+/* ===== 📱 Small Mobile (320–480px) ===== */
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 0.5rem;
+    margin: 0;
+  }
+
+  .card {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .textSection, .uploadSection {
+    width: 100%;
+  }
+
+  .textSection h2 {
+    font-size: 1.5rem;
+  }
+
+  .textSection p {
+    font-size: 0.95rem;
+  }
+
+  .uploadSection {
+    margin-top: 1rem;
+    padding: 1rem;
+    width:98%;
+  }
+
+  .uploadBox {
+    width: 100%;
+  }
+
+  .addButton {
+    margin-top: 0.5rem;
+    font-size: 18px;
+    width: 25px;
+    height: 20px;
+  }
+
+  .inputRow {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .tabSwitch {
+    flex-direction: column;
+  }
+
+  .activeTab, .inactiveTab {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+
+  .Scanner {
+    width: 100px;
+    height: 100px;
+  }
+
+  .matchButton {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .resultBox {
+    height: 150px;
+  }
+  .dropArea{
+    padding: 0px;
+    height: 130px;
+    /* width: ; */
+  }
+  .fileInput{
+    margin: 0.2rem 0 0rem 2rem;
+  }
+  .resultBlock{
+    margin: 0 1.5rem;
+  }
+}
+
+
+/* ===== 📲 Medium Mobile (481–767px) ===== */
+@media (min-width: 481px) and (max-width: 767px) {
+  .card {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .textSection, .uploadSection {
+    width: 100%;
+  }
+
+  .uploadBox {
+    width: 100%;
+  }
+
+  .tabSwitch {
+    flex-direction: row;
+  }
+
+  .inputRow {
+    flex-direction: column;
+  }
+}
+
+
+/* ===== 💻 Tablet (768–1024px) ===== */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .card {
+    flex-direction: column;
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  .textSection {
+    width: 100%;
+  }
+
+
+  .uploadSection {
+    width: 92%;
+    margin-top: 1rem;
+  }
+
+  .uploadBox {
+    width: 100%;
+  }
+
+  .inputRow {
+    flex-direction: row;
+  }
+
+  .Scanner {
+    width: 120px;
+    height: 120px;
+  }
+
+  .matchButton {
+    font-size: 1rem;
+  }
+
+  .resultBox {
+    height: 180px;
+  }
+}
+

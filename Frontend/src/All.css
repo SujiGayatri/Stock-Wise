@@ -1,0 +1,779 @@
+/* *{
+  over-flow: hidden;
+} */
+/* Scroll Behavior */
+.scroll-container {
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Header */
+.header {
+  background-color: #bfc7d8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.header-container {
+  height: 12svh;
+  width: 100vw;
+  padding: 30px clamp(1rem, 5vw, 100px);
+  display: flex;
+  justify-content: space-between;
+  background-color: #bfc7d8;
+}
+.MenuBar {
+  height: 100%;
+  width: 10vw;
+}
+.logo {
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+.NavBar {
+  height: 100%;
+  width: 45vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+}
+.SearchBar {
+  height: 100%;
+  width: 6vw;
+  display: flex;
+  justify-content: space-between;
+}
+.header-logo {
+  font-size: 18px;
+  font-weight: 800;
+  padding: 0 20px;
+  transform: scaleY(1.8);
+  font-family: "Aton", sans-serif;
+  color: #000;
+}
+.icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.HomePageContent {
+  width: 100vw;
+  overflow: hidden;
+  background-color: #bfc7d8;
+}
+.HeroContent {
+  height: 88svh;
+  width: 100vw;
+  background-color: #bfc7d8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.HeroContentMain {
+  height: 72svh;
+  width: 100vw;
+  padding: 0 clamp(1rem, 5vw, 100px);
+  display: flex;
+  justify-content: space-between;
+}
+.HeroMain {
+  height: 100%;
+  width: 65%;
+  background-color: white;
+  border-radius: 25px;
+  padding: 30px;
+  display: flex;
+}
+.HeroImage {
+  height: 100%;
+  width: 48%;
+  background-color: #52667e;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.HeroImg {
+  height: 100%;
+  width: 90%;
+  border-radius: 10px;
+}
+.HeroText {
+  height: 100%;
+  width: 52%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#HeroFont1,
+#HeroFont3 {
+  font-size: 28px;
+  font-family: "league sparton", sans-serif;
+  font-weight: 700;
+}
+#HeroFont2,
+#HeroFont4 {
+  font-size: 14px;
+  font-family: "league sparton", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  text-align: justify;
+}
+#HeroFont4 {
+  font-weight: 600;
+}
+.HeroScanner {
+  height: 100%;
+  width: 30%;
+  background-color: white;
+  border-radius: 25px;
+  padding: 20px 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.HeroScannerImg {
+  height: 160px;
+  width: 160px;
+}
+.dotted-list {
+  font-size: 13px;
+  width: 100%;
+  letter-spacing: 0.1rem;
+  font-family: "league sparton", sans-serif;
+  text-align: justify;
+
+}
+.ScanButton {
+  padding: 12px 80px;
+  font-size: 15px;
+  font-family: "league sparton", sans-serif;
+  border-radius: 10px;
+  background-color: #0f1a2c;
+  color: white;
+}
+
+/* Hero Banner */
+.HeroBanner {
+  height: 10svh;
+  width: 100svw;
+  background-color: #0f1a2c;
+  padding: 0 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.HeroBannerImg {
+  height: 30px;
+  width: 30px;
+}
+.HeroBannerText {
+  font-size: 15px;
+  font-weight: 800;
+  padding: 0 30px;
+  letter-spacing: 0.1rem;
+  transform: scaleY(1.9);
+  font-family: "Aton", sans-serif;
+  color: white;
+}
+
+/* Categories, Occasions, TopSellers, Footer remain unchanged from your original CSS as they are already well-structured and don't include errors. I can optimize those too if needed — just say the word! */
+
+/* Hero */
+
+/* Categories */
+.HomeCategories {
+  height: 100svh;
+  width: 100svw;
+  background-color: #bfc7d8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  overflow: hidden;
+}
+
+.HomeCategoriesMain {
+  padding: 0 100px;
+  height: 80svh;
+  width: 100svw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.HomeFont1 {
+  padding: 0 100px;
+  font-size: 22px;
+  letter-spacing: 0.1rem;
+  transform: scaleY(1.8);
+  text-align: justify;
+  font-weight: 800;
+  font-family: "league spartan", sans-serif;
+  /* color: #0f1a2c; */
+}
+
+.HomeCategoriesMen {
+  height: 100%;
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.HomeCategoriesWomen {
+  height: 100%;
+  width: 43%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* MEN CARD BLOCKS */
+.CategoriesMen1,
+.CategoriesMen2 {
+  height: 100%;
+  width: 48%;
+  background-color: #0f1a2c;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.CategoriesMen1 {
+  background-color: #1d2e4a;
+}
+
+/* WOMEN CARD BLOCKS */
+.CategoriesWomen1,
+.CategoriesWomen2 {
+  height: 48%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #1d2e4a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.CategoriesWomen1 {
+  background-color: #52667e;
+}
+
+.CategoriesMen1Tile {
+  height: 100%;
+  width: 100%;
+  color: white;
+}
+
+.CategoriesButton {
+  padding: 20px 40px;
+  background-color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* CARD (Label + Image + Button) */
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: transparent;
+  transition: all 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card.hidden {
+  z-index: 0;
+}
+
+.card-bg-text {
+  position: absolute;
+  font-size: 80px;
+  color: white;
+  z-index: 0;
+  text-align: center;
+  font-weight: 700;
+  font-family: "league spartan", sans-serif;
+  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  transform: scaleY(4);
+}
+
+.card-image {
+  max-height: 100%;
+  max-width: 90%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.explore-btn {
+  position: absolute;
+  padding: 12px 24px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  font-family: "Arial", sans-serif;
+  border-radius: 5px;
+  z-index: 2;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.explore-btn-men {
+  bottom: 20px;
+  left: 25%;
+  background-color: white;
+  color: #0f1a2c;
+}
+
+.explore-btn-men:hover {
+  background-color: #f2f2f2;
+  transform: scale(1.03);
+}
+
+.explore-btn-women {
+  bottom: 20px;
+  right: 0px;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+}
+
+.explore-btn-women:hover {
+  box-shadow: 1px 1px 4px grey;
+  transform: translateX(-50%) scale(1.03);
+}
+
+/* Categories */
+
+/* Ocassions */
+
+.HomeOccasions {
+  height: 100svh;
+  width: 100svw;
+  padding: 0px 100px;
+  background-color: #bfc7d8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.HomeFont2 {
+  font-size: 20px;
+  letter-spacing: 0.1rem;
+  transform: scaleY(1.8);
+  text-align: justify;
+  font-weight: 800;
+  font-family: "league sparton", sans-serif;
+}
+.OccasionMain {
+  height: 85%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.OccasionWomen {
+  height: 100%;
+  width: 30%;
+  background-image: url('./assets/HomePage/Women.png');
+  background-size: cover;
+  background-position: center;
+  border-radius : 20px;
+  overflow : hidden;
+  position : relative;
+}
+.OccasionOther {
+  height: 100%;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.OccasionKid{
+  height : 48%;
+  width : 100%;
+  background-image: url('./assets/HomePage/Kid.png');
+  background-size: cover;
+  background-position: center;
+  border-radius : 20px;
+  overflow : hidden;
+}
+.OccasionSeason{
+  height : 48%;
+  width : 100%;
+  background-image: url('./assets/HomePage/Season.png');
+  background-size: cover;
+  background-position: center;
+  border-radius : 20px;
+  overflow : hidden;
+}
+.OccasionMen {
+  height: 100%;
+  width: 30%;
+  background-image: url('./assets/HomePage/Men.png');
+  background-size: cover;
+  background-position: center;
+  border-radius : 20px;
+  overflow : hidden;
+}
+.OccassionsContent {
+  display: flex;
+  height: 95%;
+  width: 100%;
+  padding : 50px 40px;
+}
+.OccassionFont1 {
+  font-size: 32px;
+  color: white;
+  font-weight: 700;
+  margin-bottom : 10px;
+}
+.OccassionsNames {
+  height: 100%;
+  width: 100%;
+  gap : 6px;
+  display: flex;
+  flex-direction: column;
+}
+.OccassionNameFont {
+  font-size: 16px;
+  color: white;
+  font-weight: 500;
+}
+
+/* Occasions */
+
+/* TopSellers */
+.TopSellers {
+  height: 70svh;
+  width: 100svw;
+  padding: 0px 100px;
+  background-color: #bfc7d8;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+.TopSellersHead {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.TopSellersScroll {
+  height: 80%;
+  width: 100%;
+  background-color: white;
+}
+.CategoriesButtons {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+.TopSellersButton {
+  padding: 6px 25px;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  font-weight: 600;
+  font-family: "league sparton", sans-serif;
+}
+.carouselWrapper {
+  background-color: #bfc7d8;
+  padding: 30px 0px;
+  overflow-x: hidden;
+}
+
+.slick-slide {
+  padding: 0 15px;
+}
+
+.product-scroll-container {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+.product-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.productCard {
+  position: relative;
+  height: 380px;
+  min-width: 230px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.productTag {
+  display: inline-block;
+  background-color: white;
+  font-size: 12px;
+  padding: 3px 12px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #1f2937;
+  border: 2px solid #bebebe;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  z-index: 10;
+  font-family: "Arial", sans-serif;
+}
+.productTag::before {
+  content: "★";
+  font-size: 14px;
+  color: #333;
+}
+.productMain {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  width: 100%;
+  height: 85%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.productImage {
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.productTitle {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 6px 0 4px;
+  color: #111827;
+}
+
+.productDescription {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0 0 10px;
+}
+
+.productPrice {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  margin: 10px 0;
+}
+
+.productButton {
+  padding: 6px 16px;
+  background-color: #0f172a;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.5;
+}
+
+.productButton:hover {
+  background-color: #1e293b;
+  transform: scale(1.1);
+}
+
+/* TopSellers */
+
+/* Footer */
+.Footer {
+  width: 100vw;
+  padding: 40px 100px;
+  background-color: #bfc7d8;
+  box-sizing: border-box;
+}
+
+.FooterMain {
+  width: 100%;
+  background-color: #455a82;
+  border-radius: 15px;
+  padding: 50px 60px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  font-family: "league sparton", sans-serif;
+  color: white;
+}
+
+.FooterIconCircles {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.FooterTitle {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.FooterContent {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.FooterSubTitle {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.FooterInputWrapper {
+  display: flex;
+  background-color: #e6e6e6;
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 300px;
+  margin-bottom: 10px;
+}
+
+.FooterInputWrapper input {
+  border: none;
+  padding: 10px 15px;
+  outline: none;
+  color: black;
+  flex: 1;
+  font-size: 14px;
+}
+
+.FooterInputWrapper button {
+  background-color: #455a82;
+  color: white;
+  border: 2px solid white;
+  font-weight: bold;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+}
+
+.FooterNote {
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.FooterRedirection,
+.FooterContact,
+.FooterSocials {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.FooterRedirection a {
+  color: white;
+  text-decoration: none;
+}
+
+.FooterRedirection a:hover {
+  text-decoration: underline;
+}
+
+.FooterContact p,
+.FooterSocials p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.FooterRedirection strong,
+.FooterContact strong,
+.FooterSocials strong {
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.FooterIconCircle {
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+}
+
+/* Footer */

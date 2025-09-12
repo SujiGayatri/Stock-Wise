@@ -1,0 +1,702 @@
+[
+  {
+    "id": 1,
+    "title": "Blue Hoodie",
+    "category": "Summer Wear",
+    "gender": "Unisex",
+    "color": "blue",
+    "tags": [
+      "warm",
+      "sporty",
+      "comfortable",
+      "casual"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Hoodie"
+  },
+  {
+    "id": 2,
+    "title": "Pink Blazer",
+    "category": "Winter Wear",
+    "gender": "Men",
+    "color": "pink",
+    "tags": [
+      "vintage",
+      "modern",
+      "comfortable",
+      "street"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Blazer"
+  },
+  {
+    "id": 3,
+    "title": "Red Sweatpants",
+    "category": "Casual Wear",
+    "gender": "Unisex",
+    "color": "red",
+    "tags": [
+      "sporty",
+      "cool",
+      "vintage",
+      "party"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Sweatpants"
+  },
+  {
+    "id": 4,
+    "title": "Blue Crop Top",
+    "category": "Winter Wear",
+    "gender": "Unisex",
+    "color": "blue",
+    "tags": [
+      "party",
+      "warm",
+      "sporty",
+      "formal"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,CropTop"
+  },
+  {
+    "id": 5,
+    "title": "Grey Hoodie",
+    "category": "Casual Wear",
+    "gender": "Unisex",
+    "color": "grey",
+    "tags": [
+      "casual",
+      "street",
+      "formal",
+      "elegant"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Hoodie"
+  },
+  {
+    "id": 6,
+    "title": "Pink Floral Skirt",
+    "category": "Party Wear",
+    "gender": "Women",
+    "color": "pink",
+    "tags": [
+      "vintage",
+      "minimal",
+      "warm",
+      "modern"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,FloralSkirt"
+  },
+  {
+    "id": 7,
+    "title": "Red Denim Jacket",
+    "category": "Casual Wear",
+    "gender": "Men",
+    "color": "red",
+    "tags": [
+      "modern",
+      "minimal",
+      "party",
+      "comfortable"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,DenimJacket"
+  },
+  {
+    "id": 8,
+    "title": "Blue Graphic Tee",
+    "category": "Winter Wear",
+    "gender": "Men",
+    "color": "blue",
+    "tags": [
+      "minimal",
+      "party",
+      "casual",
+      "formal"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,GraphicTee"
+  },
+  {
+    "id": 9,
+    "title": "Green Floral Skirt",
+    "category": "Formal Wear",
+    "gender": "Men",
+    "color": "green",
+    "tags": [
+      "comfortable",
+      "modern",
+      "elegant",
+      "street"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,FloralSkirt"
+  },
+  {
+    "id": 10,
+    "title": "White Graphic Tee",
+    "category": "Formal Wear",
+    "gender": "Men",
+    "color": "white",
+    "tags": [
+      "modern",
+      "cool",
+      "formal",
+      "sporty"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,GraphicTee"
+  },
+  {
+    "id": 11,
+    "title": "Black Crop Top",
+    "category": "Summer Wear",
+    "gender": "Unisex",
+    "color": "black",
+    "tags": [
+      "cool",
+      "elegant",
+      "comfortable",
+      "casual"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,CropTop"
+  },
+  {
+    "id": 12,
+    "title": "White Hoodie",
+    "category": "Winter Wear",
+    "gender": "Unisex",
+    "color": "white",
+    "tags": [
+      "modern",
+      "elegant",
+      "street",
+      "comfortable"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Hoodie"
+  },
+  {
+    "id": 13,
+    "title": "Blue Sweatpants",
+    "category": "Summer Wear",
+    "gender": "Women",
+    "color": "blue",
+    "tags": [
+      "comfortable",
+      "cool",
+      "vintage",
+      "party"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Sweatpants"
+  },
+  {
+    "id": 14,
+    "title": "Pink Denim Jacket",
+    "category": "Casual Wear",
+    "gender": "Men",
+    "color": "pink",
+    "tags": [
+      "street",
+      "cool",
+      "comfortable",
+      "party"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,DenimJacket"
+  },
+  {
+    "id": 15,
+    "title": "Black Blazer",
+    "category": "Casual Wear",
+    "gender": "Men",
+    "color": "black",
+    "tags": [
+      "modern",
+      "warm",
+      "formal",
+      "comfortable"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Blazer"
+  },
+  {
+    "id": 16,
+    "title": "White Graphic Tee",
+    "category": "Summer Wear",
+    "gender": "Women",
+    "color": "white",
+    "tags": [
+      "party",
+      "vintage",
+      "sporty",
+      "street"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,GraphicTee"
+  },
+  {
+    "id": 17,
+    "title": "Purple Jeans",
+    "category": "Winter Wear",
+    "gender": "Unisex",
+    "color": "purple",
+    "tags": [
+      "formal",
+      "cool",
+      "casual",
+      "street"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Jeans"
+  },
+  {
+    "id": 18,
+    "title": "Green Blazer",
+    "category": "Summer Wear",
+    "gender": "Unisex",
+    "color": "green",
+    "tags": [
+      "cool",
+      "minimal",
+      "elegant",
+      "casual"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Blazer"
+  },
+  {
+    "id": 19,
+    "title": "White Denim Jacket",
+    "category": "Winter Wear",
+    "gender": "Women",
+    "color": "white",
+    "tags": [
+      "street",
+      "party",
+      "warm",
+      "comfortable"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,DenimJacket"
+  },
+  {
+    "id": 20,
+    "title": "Purple Jeans",
+    "category": "Summer Wear",
+    "gender": "Women",
+    "color": "purple",
+    "tags": [
+      "vintage",
+      "minimal",
+      "party",
+      "casual"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Jeans"
+  },
+  {
+    "id": 21,
+    "title": "Blue Summer Dress",
+    "category": "Party Wear",
+    "gender": "Women",
+    "color": "blue",
+    "tags": [
+      "modern",
+      "party",
+      "vintage",
+      "comfortable"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,SummerDress"
+  },
+  {
+    "id": 22,
+    "title": "Green Graphic Tee",
+    "category": "Formal Wear",
+    "gender": "Men",
+    "color": "green",
+    "tags": [
+      "cool",
+      "minimal",
+      "party",
+      "street"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,GraphicTee"
+  },
+  {
+    "id": 23,
+    "title": "Purple Jeans",
+    "category": "Summer Wear",
+    "gender": "Unisex",
+    "color": "purple",
+    "tags": [
+      "modern",
+      "street",
+      "minimal",
+      "party"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Jeans"
+  },
+  {
+    "id": 24,
+    "title": "Yellow Jeans",
+    "category": "Party Wear",
+    "gender": "Men",
+    "color": "yellow",
+    "tags": [
+      "sporty",
+      "formal",
+      "elegant",
+      "party"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Jeans"
+  },
+  {
+    "id": 25,
+    "title": "White Crop Top",
+    "category": "Party Wear",
+    "gender": "Unisex",
+    "color": "white",
+    "tags": [
+      "street",
+      "minimal",
+      "elegant",
+      "sporty"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,CropTop"
+  },
+  {
+    "id": 26,
+    "title": "White Hoodie",
+    "category": "Summer Wear",
+    "gender": "Unisex",
+    "color": "white",
+    "tags": [
+      "formal",
+      "party",
+      "elegant",
+      "minimal"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Hoodie"
+  },
+  {
+    "id": 27,
+    "title": "Red Blazer",
+    "category": "Summer Wear",
+    "gender": "Women",
+    "color": "red",
+    "tags": [
+      "street",
+      "casual",
+      "vintage",
+      "warm"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Blazer"
+  },
+  {
+    "id": 28,
+    "title": "Yellow Hoodie",
+    "category": "Formal Wear",
+    "gender": "Women",
+    "color": "yellow",
+    "tags": [
+      "modern",
+      "vintage",
+      "cool",
+      "casual"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Hoodie"
+  },
+  {
+    "id": 29,
+    "title": "Green Jeans",
+    "category": "Formal Wear",
+    "gender": "Men",
+    "color": "green",
+    "tags": [
+      "comfortable",
+      "party",
+      "sporty",
+      "street"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Jeans"
+  },
+  {
+    "id": 30,
+    "title": "Green Summer Dress",
+    "category": "Formal Wear",
+    "gender": "Men",
+    "color": "green",
+    "tags": [
+      "warm",
+      "modern",
+      "cool",
+      "casual"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,SummerDress"
+  },
+  {
+    "id": 31,
+    "title": "Yellow Sweatpants",
+    "category": "Summer Wear",
+    "gender": "Unisex",
+    "color": "yellow",
+    "tags": [
+      "casual",
+      "formal",
+      "cool",
+      "party"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Sweatpants"
+  },
+  {
+    "id": 32,
+    "title": "Yellow Leather Jacket",
+    "category": "Formal Wear",
+    "gender": "Men",
+    "color": "yellow",
+    "tags": [
+      "cool",
+      "street",
+      "vintage",
+      "elegant"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,LeatherJacket"
+  },
+  {
+    "id": 33,
+    "title": "Yellow Blazer",
+    "category": "Winter Wear",
+    "gender": "Unisex",
+    "color": "yellow",
+    "tags": [
+      "comfortable",
+      "elegant",
+      "street",
+      "party"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Blazer"
+  },
+  {
+    "id": 34,
+    "title": "White Blazer",
+    "category": "Formal Wear",
+    "gender": "Women",
+    "color": "white",
+    "tags": [
+      "party",
+      "street",
+      "casual",
+      "sporty"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Blazer"
+  },
+  {
+    "id": 35,
+    "title": "White Party Dress",
+    "category": "Formal Wear",
+    "gender": "Unisex",
+    "color": "white",
+    "tags": [
+      "street",
+      "modern",
+      "party",
+      "warm"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,PartyDress"
+  },
+  {
+    "id": 36,
+    "title": "White Graphic Tee",
+    "category": "Formal Wear",
+    "gender": "Men",
+    "color": "white",
+    "tags": [
+      "comfortable",
+      "vintage",
+      "casual",
+      "party"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,GraphicTee"
+  },
+  {
+    "id": 37,
+    "title": "Black Jumpsuit",
+    "category": "Winter Wear",
+    "gender": "Unisex",
+    "color": "black",
+    "tags": [
+      "modern",
+      "party",
+      "sporty",
+      "formal"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Jumpsuit"
+  },
+  {
+    "id": 38,
+    "title": "Purple Party Dress",
+    "category": "Party Wear",
+    "gender": "Unisex",
+    "color": "purple",
+    "tags": [
+      "street",
+      "minimal",
+      "sporty",
+      "elegant"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,PartyDress"
+  },
+  {
+    "id": 39,
+    "title": "Blue Hoodie",
+    "category": "Casual Wear",
+    "gender": "Men",
+    "color": "blue",
+    "tags": [
+      "street",
+      "modern",
+      "warm",
+      "sporty"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Hoodie"
+  },
+  {
+    "id": 40,
+    "title": "White Graphic Tee",
+    "category": "Summer Wear",
+    "gender": "Unisex",
+    "color": "white",
+    "tags": [
+      "party",
+      "modern",
+      "sporty",
+      "casual"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,GraphicTee"
+  },
+  {
+    "id": 41,
+    "title": "Green Jeans",
+    "category": "Party Wear",
+    "gender": "Unisex",
+    "color": "green",
+    "tags": [
+      "elegant",
+      "party",
+      "sporty",
+      "warm"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Jeans"
+  },
+  {
+    "id": 42,
+    "title": "Yellow Leather Jacket",
+    "category": "Winter Wear",
+    "gender": "Women",
+    "color": "yellow",
+    "tags": [
+      "street",
+      "casual",
+      "party",
+      "formal"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,LeatherJacket"
+  },
+  {
+    "id": 43,
+    "title": "Black Floral Skirt",
+    "category": "Formal Wear",
+    "gender": "Men",
+    "color": "black",
+    "tags": [
+      "vintage",
+      "formal",
+      "modern",
+      "warm"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,FloralSkirt"
+  },
+  {
+    "id": 44,
+    "title": "Red Graphic Tee",
+    "category": "Party Wear",
+    "gender": "Unisex",
+    "color": "red",
+    "tags": [
+      "casual",
+      "minimal",
+      "sporty",
+      "party"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,GraphicTee"
+  },
+  {
+    "id": 45,
+    "title": "Yellow Graphic Tee",
+    "category": "Summer Wear",
+    "gender": "Unisex",
+    "color": "yellow",
+    "tags": [
+      "street",
+      "sporty",
+      "comfortable",
+      "warm"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,GraphicTee"
+  },
+  {
+    "id": 46,
+    "title": "Red Jumpsuit",
+    "category": "Casual Wear",
+    "gender": "Unisex",
+    "color": "red",
+    "tags": [
+      "comfortable",
+      "street",
+      "party",
+      "sporty"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Jumpsuit"
+  },
+  {
+    "id": 47,
+    "title": "Green Floral Skirt",
+    "category": "Casual Wear",
+    "gender": "Men",
+    "color": "green",
+    "tags": [
+      "sporty",
+      "street",
+      "formal",
+      "modern"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,FloralSkirt"
+  },
+  {
+    "id": 48,
+    "title": "Yellow Hoodie",
+    "category": "Summer Wear",
+    "gender": "Unisex",
+    "color": "yellow",
+    "tags": [
+      "modern",
+      "warm",
+      "sporty",
+      "street"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Hoodie"
+  },
+  {
+    "id": 49,
+    "title": "White Hoodie",
+    "category": "Party Wear",
+    "gender": "Men",
+    "color": "white",
+    "tags": [
+      "warm",
+      "modern",
+      "party",
+      "comfortable"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,Hoodie"
+  },
+  {
+    "id": 50,
+    "title": "Pink Leather Jacket",
+    "category": "Party Wear",
+    "gender": "Unisex",
+    "color": "pink",
+    "tags": [
+      "street",
+      "party",
+      "formal",
+      "elegant"
+    ],
+    "image": "https://source.unsplash.com/random/300x400/?clothing,LeatherJacket"
+  }
+]

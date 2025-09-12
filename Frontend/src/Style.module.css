@@ -1,0 +1,166 @@
+.dashboard {
+  display: flex;
+  height: fit-content;
+  width: 100%;
+  background: linear-gradient(to bottom right, #191919, #2b1d3a);
+  color: white;
+  /* justify-content: center;
+  align-items: center; */
+  flex-direction: column;
+}
+.buttonBar {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: beige; */
+  gap: 16px;
+}
+.buttonsBlock{
+  display: flex;
+  gap: 16px;
+  margin: 0 auto;
+}
+.actionButton {
+  padding: 10px 16px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+}
+
+.actionButton:hover {
+  opacity: 0.9;
+}
+.actionButton:focus{
+  outline: none;
+}
+
+/* Active state */
+.active {
+  background-color: white;
+  color: black;
+}
+
+.refreshButton {
+  position: absolute;
+  right: 7%;
+  padding: 10px 14px;
+  background-color: #2b2b36;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.viewContainer{
+  height: fit-content;
+  width: 100%;
+}
+
+/* ============================
+   📱 Small Mobile: 320px - 480px
+============================ */
+@media (max-width: 480px) {
+  .buttonBar {
+    flex-direction: column;
+    height: auto;
+    padding: 12px 0;
+    gap: 12px;
+  }
+
+  .buttonsBlock {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .actionButton {
+    width: 90%;
+    text-align: center;
+  }
+
+  .refreshButton {
+    position: static; 
+    margin-top: 8px;
+    right: 1%;
+  }
+
+  .viewContainer {
+    height: auto;
+    /* padding: 12px; */
+  }
+}
+
+/* ============================
+   📱 Medium Mobile: 481px - 767px
+============================ */
+@media (min-width: 481px) and (max-width: 767px) {
+  .buttonBar {
+    flex-direction: column;
+    height: auto;
+    padding: 16px 0;
+    gap: 16px;
+  }
+
+  .buttonsBlock {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .actionButton {
+    flex: 1 1 auto;
+    min-width: 120px;
+  }
+
+  .refreshButton {
+    position: static;
+    margin-top: 10px;
+  }
+
+  .viewContainer {
+    padding: 16px;
+  }
+}
+
+/* ============================
+   💻 Tablet: 768px - 1024px
+============================ */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .buttonBar {
+    flex-direction: row;
+    justify-content: space-between;
+    /* padding: 0 20px; */
+  }
+
+  .buttonsBlock {
+    flex-direction: row;
+  }
+
+  .refreshButton {
+    position: relative;
+    right: 5%;
+  }
+}
+
+/* ============================
+   🖥️ Desktop: 1025px and above
+============================ */
+@media (min-width: 1025px) {
+  
+
+  .buttonsBlock {
+    gap: 20px;
+  }
+
+  .actionButton {
+    min-width: 160px;
+  }
+}

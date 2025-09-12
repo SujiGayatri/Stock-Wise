@@ -1,0 +1,619 @@
+.logincontainer {
+  background-color: #c3cadb;
+  width: 100%;
+  height: 100svh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginimg {
+  width: 50%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 110%;
+  margin-left: 50px;
+}
+
+.loginbox1 {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 30px; */
+  justify-content: start;
+  /* justify-content: space-around; */
+  /* margin-right: 50px; */
+  /* background-color: red; */
+}
+
+.loginbox2 {
+  width: 85%;
+  height: fit-content;
+  padding: 10px 0px  30px 0px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+  justify-content: center;
+  border-radius: 20px;
+  font-family: sparton;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  margin-top: 70px;
+  /* margin-left: 50px; */
+}
+
+.loginbox2 h2 {
+  font-family: Montserrat;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin-top: 45px;
+}
+
+.descrip {
+  font-size: 12px;
+  color: black;
+  align-content: center;
+}
+
+.loginbox2 input {
+  width: 60%;
+  padding: 8px;
+  margin: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 10px;
+}
+
+.forgot {
+  width: 60%;
+  font-size: 12px;
+  color: #333;
+  margin-right: 5px;
+}
+
+.signinbtn {
+  width: 65%;
+  background-color: #154273;
+  color: white;
+  padding: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.divider {
+  text-align: center;
+  width: 30%;
+  margin: 10px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background-color: #666;
+}
+
+.dividertext {
+  margin: 0 3px;
+  color: black;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.socialbuttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.socialbuttons button {
+  padding: 5px;
+  font-size: 9px;
+  border-radius: 6px;
+  background-color: white;
+  border: 1px solid #867f7f;
+  cursor: pointer;
+}
+
+.register {
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+.register a {
+  color: #000;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.footer {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+}
+
+.footer a {
+  color: #555;
+  text-decoration: underline;
+}
+.otpinputcontainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 20px 0;
+}
+.otpbox {
+  width: 40px;
+  height: 45px;
+  text-align: center;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f3f3f3;
+  transition: border 0.2s;
+}
+
+.otpbox:focus {
+  border-color: #2da0a8;
+  background-color: #fff;
+}
+
+.authinputspacing {
+  margin-bottom: 12px;
+}
+
+
+.authtitle {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.authinputfield {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  border-radius: 8px;
+  padding: 12px 16px;
+  /* margin: 8px 0; */
+  font-size: 14px;
+  width: 25%;
+  gap: 10px;
+}
+.formdiv{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:15px;
+  
+}
+.authinputfield svg {
+  color: #555;
+  font-size: 16px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.authinputfield input {
+  border: none !important;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  width: 100%;
+  line-height: 1.6;
+  padding: 5px !important;
+  margin: 0;
+  transform: translateY(1px);
+}
+
+.authbtn {
+  background-color: #2d2998;
+  color: white;
+  font-size: 12px;
+  padding: 10px 45px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.authbtn:hover {
+  background-color: #2d2998;
+}
+
+.authbtn.ghost {
+  /* background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff; */
+  margin-left: 20px;
+}
+.autherror {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.authforgot {
+  font-size: 13px;
+  margin-top: 10px;
+  color: #333;
+  cursor: pointer;
+  text-decoration: underline;
+  text-align: center;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .logincontainer{
+    width: 100%;
+    min-height: 100svh;
+  overflow: hidden;
+  }
+  .loginimg {
+    width: 100%;
+    height: 510px; 
+  }
+  .loginbox1 {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+  }
+
+  .loginbox2 {
+    width: 75%;
+    gap: 5px;
+    padding: 20px 0px 30px 0px;
+  }
+
+  .loginbox2 input {
+    width: 65%;
+  }
+
+  .signinbtn {
+    width: 70%;
+  }
+  .socialbuttons {
+    align-items: center;
+  }
+
+  .socialbuttons button {
+    margin: 5px 0;
+  }
+ 
+  .forgot{
+    width: 65%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .logincontainer {
+    width: 100%;
+    min-height: 100svh;
+    overflow: hidden;
+  }
+
+  .loginimg {
+    width: 100%;
+    height: 28.125rem; /* 450px */
+  }
+  .loginbox2 {
+    width: 80%;
+    padding: 5px 0px 10px 0px;
+    gap: 2px;
+  }
+
+  .loginbox2 input {
+    width: 65%;
+  }
+
+  .forgot {
+    width: 70%;
+  }
+  .signinbtn {
+    width: 70%;
+  }
+
+  .divider {
+    width: 45%;
+    margin: 5px 0;
+  }
+
+  .dividertext {
+    font-size: 12px;
+  }
+
+  .socialbuttons {
+    align-items: center;
+    gap: 10px;
+    
+  }
+  .register {
+    text-align: center;
+    margin-top: 0px;
+  }
+
+  .footer {
+    font-size: 12px;
+  }
+}
+/* @media screen and (max-width: 480px) {
+  .logincontainer {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    background-color: #fff; 
+  }
+
+  .loginimg {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+  }
+
+  .loginbox1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .loginbox2 {
+    width: 90%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .loginbox2 input {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    font-size: 14px;
+  }
+
+  .forgot {
+    width: 100%;
+    text-align: right;
+    font-size: 13px;
+    margin: 5px 0;
+  }
+
+  .signinbtn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .divider {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+  }
+
+  .divider .line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #ccc;
+  }
+
+  .dividertext {
+    margin: 0 10px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .socialbuttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .socialbuttons button {
+    flex: 1;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .register {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 20px;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    margin: 20px 0 10px;
+    width: 100%;
+  }
+} */
+
+@media screen and (max-width: 480px) {
+  .logincontainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .loginimg {
+    width: 100%;
+    height: 450px;
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loginbox1 {
+    margin-top: 10px;
+  }
+
+  .loginbox2 {
+    width: 75%;
+  }
+
+  .loginbox2 input {
+    width: 65%;
+  }
+
+  .forgot {
+    width: 70%;
+   
+  }
+
+  .signinbtn {
+    width: 70%;
+  }
+
+  .divider {
+    width: 45%;
+    margin: 5px 0;
+  }
+
+  .dividertext {
+    font-size: 12px;
+  }
+
+  .socialbuttons {
+    align-items: center;
+    gap: 10px;
+    
+  }
+  .register {
+    text-align: center;
+    margin-top: 0px;
+  }
+
+  .footer {
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .logincontainer {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 10px 0;
+    overflow-x: hidden;
+    background-color: #c3cadb;
+  }
+
+  .loginimg {
+    width: 100%;
+    height: 380px;
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .loginbox1 {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .loginbox2 {
+    width: 80%;
+    margin: 20px auto 30px auto;
+    padding: 15px 0;
+    height: auto;
+  }
+
+  .loginbox2 h2 {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .descrip {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .loginbox2 input {
+    width: 70%;
+    font-size: 10px;
+    padding: 6px;
+  }
+
+  .forgot {
+    width: 70%;
+    font-size: 10px;
+    text-align: left;
+
+  }
+
+  .signinbtn {
+    width: 75%;
+    font-size: 11px;
+    padding: 6px;
+  }
+
+  .divider {
+    width: 45%;
+    margin: 8px auto;
+  }
+
+  .dividertext {
+    font-size: 10px;
+  }
+
+  .socialbuttons {
+    gap: 8px;
+    width: 75%;
+  }
+
+  .socialbuttons button {
+    width: 100%;
+    font-size: 8px;
+    padding: 5px;
+  }
+
+  .register {
+    font-size: 10px;
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  .footer {
+    font-size: 10px;
+    width: 100%;
+    text-align: center;
+  }
+}

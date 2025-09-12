@@ -1,0 +1,129 @@
+.product-container {
+  width: 100%;
+  background: #bec5d4;
+  color: #222;
+  font-family: Arial, sans-serif;
+  padding: 40px 150px;
+  box-sizing: border-box;
+  /* height: 100vh;  */
+  overflow: hidden;
+}
+
+.product-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 60px;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 150px
+}
+ .left img {
+  width: 400px;
+  height : 450px;
+  object-fit: contain;
+  border-radius: 20px;
+  background-color: #fff;
+  padding: 20px;
+  display: block; 
+ }
+.product-right{
+  padding-right: 20px;
+  margin-bottom: 50px;
+}
+.product-right h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.size {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.sizes {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.sizes button {
+  width: 40px;
+  height: 40px;
+  background: #1d2e4a;
+  color: #fff;
+  border: none;
+   box-shadow: 0px 0px 5px grey;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.sizes button:hover {
+  background-color: #3a4f7a;
+    box-shadow: 0px 0px 5px black;
+}
+
+.button-column {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.availability {
+  padding: 10px 20px;
+  background: #fff;
+  color: #0a0;
+  border: 2px solid black;
+  box-shadow: 0px 0px 5px grey;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  
+}
+.availability:hover{
+  border-color:#1d2e4a ;
+  box-shadow: 0px 0px 5px black;
+}
+
+.details-toggle {
+  padding: 10px 20px;
+  background: #1d2e4a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.details-list {
+  list-style: none;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.details-list li {
+  margin-bottom: 6px;
+}
+
+.details-list strong {
+  font-weight: bold;
+}
+.Tilte{
+  font-size : 24px;
+  font-weight : 600;
+}
