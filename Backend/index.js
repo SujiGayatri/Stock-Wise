@@ -62,3 +62,7 @@ mongoose.connect(MONGO_URI, {
   console.error("❌ MongoDB connection error:", err);
   process.exit(1); // exit if DB fails
 });
+
+app.get("/", (req, res) => {
+  res.send("Backend is running successfully 🚀");
+});
