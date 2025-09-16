@@ -44,7 +44,7 @@ mongoose.connect(MONGO_URI, {
   // useUnifiedTopology: true
 })
 .then(() => {
-  console.log("✅ Connected to MongoDB:", mongoose.connection.name);
+  console.log("Connected to MongoDB:", mongoose.connection.name);
 
   const server = app.listen(PORT, '0.0.0.0', () => {
     const addr = server.address();
@@ -59,7 +59,7 @@ mongoose.connect(MONGO_URI, {
 
 })
 .catch(err => {
-  console.error("❌ MongoDB connection error:", err);
+  console.error("MongoDB connection error:", err);
   process.exit(1); // exit if DB fails
 });
 
