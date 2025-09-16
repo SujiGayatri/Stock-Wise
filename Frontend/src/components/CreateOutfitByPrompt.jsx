@@ -6,8 +6,7 @@ import { GrSend } from "react-icons/gr";
 import { FiSearch, FiEdit, FiTrash2, FiPlus, FiMenu } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import Loader from "../pages/Loader";
-import BASE_URL from '../Utils/config'; 
-
+const BASE_URL =import.meta.env.VITE_API_URL || "https://stock-wise-backend.onrender.com";
 
 const sidebarHistory = [
   "Today",

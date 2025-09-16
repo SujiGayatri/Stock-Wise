@@ -9,7 +9,8 @@ import { getClosestColorName, getRelatedColors } from '../Utils/BasicColors';
 import { resolveDressCategory } from '../Utils/DressTypeMapper';
 import { useNavigate } from 'react-router-dom';
 import Loader from "../pages/Loader";
-import BASE_URL from '../Utils/config';
+// import BASE_URL from '../Utils/config';
+const BASE_URL =import.meta.env.VITE_API_URL || "https://stock-wise-backend.onrender.com";
 const MatchOutfitByImage = React.memo(() => {
     const [activeTab, setActiveTab] = useState('upload');
     const [isLoading, setIsLoading] = useState(false);
@@ -43,7 +44,7 @@ const MatchOutfitByImage = React.memo(() => {
     }, []);
   
     const handleImageLoad = () => {
-      console.log('Image loaded, waiting for button click to analyze...');
+      // console.log('Image loaded, waiting for button click to analyze...');
       setIsImageLoaded(true);
     };
 
@@ -56,12 +57,12 @@ const MatchOutfitByImage = React.memo(() => {
   // Validate image
   if (!imgRef.current.complete || imgRef.current.naturalWidth === 0) {
     alert("Image failed to load properly. Please try another image.");
-    console.error("Image validation failed:", {
-      complete: imgRef.current.complete,
-      naturalWidth: imgRef.current.naturalWidth,
-      naturalHeight: imgRef.current.naturalHeight,
-      src: imgRef.current.src,
-    });
+    // console.error("Image validation failed:", {
+    //   complete: imgRef.current.complete,
+    //   naturalWidth: imgRef.current.naturalWidth,
+    //   naturalHeight: imgRef.current.naturalHeight,
+    //   src: imgRef.current.src,
+    // });
     return;
   }
 
@@ -84,27 +85,27 @@ const MatchOutfitByImage = React.memo(() => {
       }
     });
 
-    console.log("Image preloaded successfully:", {
-      src: img.src,
-      width: img.width,
-      height: img.height,
-      naturalWidth: img.naturalWidth,
-    });
+    // console.log("Image preloaded successfully:", {
+    //   src: img.src,
+    //   width: img.width,
+    //   height: img.height,
+    //   naturalWidth: img.naturalWidth,
+    // });
 
     // Load MobileNet model
     const model = await mobilenet.load();
-    console.log("MobileNet model loaded");
+    // console.log("MobileNet model loaded");
 
     // Classify the image
     const predictions = await model.classify(img);
-    console.log("Raw MobileNet predictions:", predictions);
-    predictions.forEach((pred) => {
-      console.log(`${pred.className}: ${Math.round(pred.probability * 100)}%`);
-    });
+    // console.log("Raw MobileNet predictions:", predictions);
+    // predictions.forEach((pred) => {
+    //   console.log(`${pred.className}: ${Math.round(pred.probability * 100)}%`);
+    // });
 
     const detectedType = resolveDressCategory(predictions);
     if (!detectedType || typeof detectedType !== "string") {
-      console.error("Detected type is invalid:", detectedType);
+      // console.error("Detected type is invalid:", detectedType);
       alert("Unable to detect clothing type. Please try another image.");
       return;
     }
@@ -115,10 +116,10 @@ const MatchOutfitByImage = React.memo(() => {
     try {
       const colorThief = new ColorThief();
       rgb = colorThief.getColor(img); // Use preloaded img
-      console.log("ColorThief RGB:", rgb);
+      // console.log("ColorThief RGB:", rgb);
       setDominantColor(rgb);
     } catch (colorErr) {
-      console.error("ColorThief error:", colorErr);
+      // console.error("ColorThief error:", colorErr);
       alert("Failed to extract color from image. Using default color.");
       rgb = [0, 0, 0]; // Fallback color
       setDominantColor(rgb);
@@ -161,9 +162,9 @@ const MatchOutfitByImage = React.memo(() => {
     const data = await response.json();
     const matched = data.matches || [];
 
-    console.log("Detected Type:", detectedType);
-    console.log("Match Types:", matchTypes);
-    console.log("Matched Items:", matched.map((m) => m.Type));
+    // console.log("Detected Type:", detectedType);
+    // console.log("Match Types:", matchTypes);
+    // console.log("Matched Items:", matched.map((m) => m.Type));
 
     setRecommendations(matched);
     navigate("/Products", {

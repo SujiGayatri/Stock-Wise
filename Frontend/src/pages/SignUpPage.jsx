@@ -1,29 +1,23 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import styles from '../../src/SignInPage.module.css';
-import { Link, useNavigate } from 'react-router-dom';
-import { FaEnvelope, FaGoogle, FaApple, FaFacebook } from "react-icons/fa";
-import loginImage from '../../src/assets/Login/loginimg.png';
+import React, { useState, useCallback } from 'react';
+import Loader from "./Loader";
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { FaGoogle } from "react-icons/fa";
+import { FaApple } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import styles from '../../src/SignUpPage.module.css';
+import SignUpPageImage from '../../src/assets/Login/SignUpPageImage.png';
 import { useGoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
-import API_BASE_URL from '../Utils/config'; 
-
-export default function SignInPage() {
-  const [employeeId, setEmployeeId] = useState('');
-  const [password, setPassword] = useState('');
-  const [showForgotForm, setShowForgotForm] = useState(false);
-  const [forgotEmail, setForgotEmail] = useState("");
-  const [otpSent, setOtpSent] = useState(false);
-  const [isOtpVerified, setIsOtpVerified] = useState(false);
-  const [otp, setOtp] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+const API_BASE_URL =import.meta.env.VITE_API_URL || "https://stock-wise-backend.onrender.com";
+  export default function SignUpPage() {
   const navigate = useNavigate();
-
-  // Google Login
+  const [fullName, setFullName] = useState('');
+  const [employeeId, setEmployeeId] = useState('');
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const login = useGoogleLogin({
     onSuccess: (tokenResponse) => {
       const decoded = jwtDecode(tokenResponse.credential);
@@ -32,246 +26,75 @@ export default function SignInPage() {
     onError: () => {
       console.log("Login Failed");
     }
-  });
-
-  // Handle Login
-  const handleLogin = () => {
-    fetch(`${API_BASE_URL}/api/auth/login`, {
+    });
+  const handleSignup = useCallback(() => {
+    setIsLoading(true);
+    fetch(`${API_BASE_URL}/api/auth/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: employeeId, password })
+      body: JSON.stringify({
+        fullName,
+        email, 
+        password,
+        mobileNumber,
+        employeeId
+      })
     })
-    .then(res => res.json())
-    .then(data => {
-      alert(data.message);
-      if (data.message === "Login successful") {
-        console.log("Logged in user:", data.user);
-        navigate('/home');
+    .then(res => {
+      setIsLoading(false);
+      if (res.status === 201) {
+        alert("User created successfully");
+        navigate("/");
+      } else {
+        return res.json().then(data => {
+          alert(data.message || "Signup failed");
+        });
       }
     })
-    .catch(err => console.error("Login Error:", err));
-  };
-
-  // Send OTP
-  const handleSendOtp = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      await axios.post(`${API_BASE_URL}/api/auth/send-otp`, {
-        email: forgotEmail,
-      });
-      toast.success("OTP sent to registered email");
-      setOtpSent(true);
-    } catch (err) {
-      toast.error(err.response?.data?.message || "Failed to send OTP");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Verify OTP
-  const handleVerifyOtp = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      await axios.post(`${API_BASE_URL}/api/auth/verify-otp`, {
-        email: forgotEmail,
-        otp,
-      });
-      toast.success("OTP Verified");
-      setIsOtpVerified(true);
-    } catch (err) {
-      toast.error(err.response?.data?.message || "OTP verification failed");
-      console.log(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Reset Password
-  const handleResetPassword = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{6,}$/;
-    if (!passwordRegex.test(newPassword)) {
-      toast.error("Password must include 1 uppercase, 1 lowercase, 1 number, 1 special character and 6+ chars");
-      setLoading(false);
-      return;
-    }
-
-    if (newPassword !== confirmPassword) {
-      toast.error("Passwords do not match");
-      setLoading(false);
-      return;
-    }
-
-    try {
-      await axios.post(`${API_BASE_URL}/api/auth/reset-password`, {
-        email: forgotEmail,
-        otp,
-        newPassword,
-        confirmPassword,
-      });
-      toast.success("Password changed successfully!");
-      setShowForgotForm(false);
-      setOtpSent(false);
-      setIsOtpVerified(false);
-      setForgotEmail("");
-      setOtp("");
-      setNewPassword("");
-      setConfirmPassword("");
-    } catch (err) {
-      toast.error(err.response?.data?.message || "Reset failed");
-    } finally {
-      setLoading(false);
-    }
-  };
-
+    .catch(err => {
+      setIsLoading(false);
+      console.error("Signup Error:", err);
+      alert("Something went wrong during signup!");
+    });
+  }, [fullName, email, password, mobileNumber, employeeId, navigate]);
   return (
     <div>
-      {!showForgotForm ? (
-        <div className={styles.logincontainer}>
-          <div className={styles['loginimg']} style={{ backgroundImage: `url(${loginImage})` }}></div>
-          <div className={styles.loginbox1}>
-            <div className={styles.loginbox2}>
-              <h2>Employee Login</h2>
-              <div className={styles.descrip}>Hey! Enter your details to login</div>
-              <div className={styles.descrip}>to your account</div><br />
-              
-              <input
-                type="text"
-                placeholder="Employee ID / Mobile Number"
-                value={employeeId}
-                onChange={(e) => setEmployeeId(e.target.value)}
-              />
-              
-              <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              
-              <a href="#" className={styles.forgot} onClick={() => setShowForgotForm(true)}>Forgot Password?</a>
-              
-              <button className={styles.signinbtn} onClick={handleLogin}>Sign In</button>
-
-              <div className={styles.divider}>
-                <div className={styles.line}></div>
-                <div className={styles.dividertext}>Or Log in with</div>
-                <div className={styles.line}></div>
-              </div>
-
-              <div className={styles.socialbuttons}>
-                <button className={styles.google} onClick={() => login()}>
-                  <FaGoogle size={9} /> Google
-                </button>
-                <button className={styles.apple}><FaApple size={9} /> Apple</button>
-                <button className={styles.facebook}><FaFacebook size={9} /> Facebook</button>
-              </div>
-
-              <p className={styles.register}>Don’t have an account? <Link to="/signup">Register Now</Link></p>
-            </div>
-
-            <footer className={styles.footer}>
-              Copyright ©stockwise 2025 | <a href="#">Privacy Policy</a>
-            </footer>
-          </div>
+      {isLoading && (
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '450px' }}>
+          <Loader />
         </div>
-      ) : !otpSent ? (
-        <form onSubmit={handleSendOtp} className={styles.formdiv}>
-          <h2 className={styles.authtitle}>Forgot Password</h2>
-          <div className={styles.authinputfield}>
-            <FaEnvelope />
-            <input
-              type="email"
-              placeholder="Enter Registered Email"
-              value={forgotEmail}
-              onChange={(e) => setForgotEmail(e.target.value)}
-              required
-            />
+      )}
+      {!isLoading && (
+        <div className={styles.signupcontainer}>
+          <div className={styles.signupleftbox}>
+            <div className={styles.signupleftform}>
+              <h2><b>Registration</b></h2>
+              <div className={styles.para1}>Hey ! Enter your details to </div>
+              <div className={styles.para2}>create an account</div>
+              <input type="text" placeholder="Enter Full Name" value={fullName} onChange={(e) => setFullName(e.target.value)} />
+              <input type="text" placeholder="Enter Employee ID" value={employeeId} onChange={(e) => setEmployeeId(e.target.value)}/>
+              <input type="text" placeholder="Enter Mobile Number" value={mobileNumber} onChange={(e) => setMobileNumber(e.target.value)}/>
+              <input type="email" placeholder="Enter Mail ID" value={email} onChange={(e) => setEmail(e.target.value)}/>
+              <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+              <button type="submit" onClick={handleSignup}>Sign Up</button>
+              <div className={styles.signupdivider}>
+                <div className={styles.line}></div>
+                <div className={styles.dividertext}>Or Sign Up with</div>
+                <div className={styles.line}></div>
+              </div>
+              <div className={styles.signupsocialbuttons}>
+                <button onClick={() => login()}><FaGoogle size={8}/> Google</button>
+                <button><FaApple size={9}/> Apple</button>
+                <button><FaFacebook size={9}/> Facebook</button>
+              </div>
+              <p className={styles.signupsignintext}>
+                Already have an account? <Link to="/">Sign In</Link>
+              </p>
+            </div>
           </div>
-          <button type="submit" className={styles.authbtn}>Send OTP</button>
-          <p className={styles.authforgot} onClick={() => setShowForgotForm(false)}>Back to Login</p>
-        </form>
-      ) : !isOtpVerified ? (
-        <form onSubmit={handleVerifyOtp} className={styles.formdiv}>
-          <h2 className={styles.authtitle}>Verify OTP</h2>
-          <p>Enter the 6-digit OTP sent to your email</p>
-          <div className={styles.otpinputcontainer}>
-            {Array(6).fill("").map((_, index) => (
-              <input
-                key={index}
-                type="text"
-                maxLength={1}
-                className={styles.otpbox}
-                value={otp[index] || ""}
-                onChange={(e) => {
-                  const val = e.target.value.replace(/[^0-9]/g, "");
-                  if (!val) return;
-                  const newOtp = otp.split("");
-                  newOtp[index] = val;
-                  setOtp(newOtp.join(""));
-                  const next = e.target.nextSibling;
-                  if (next) next.focus();
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === "Backspace") {
-                    const newOtp = otp.split("");
-                    newOtp[index] = "";
-                    setOtp(newOtp.join(""));
-                    const prev = e.target.previousSibling;
-                    if (prev) prev.focus();
-                  }
-                }}
-                required
-              />
-            ))}
-          </div>
-          <button type="submit" className={styles.authbtn}>Verify OTP</button>
-          <p className={styles.authforgot} onClick={() => {
-            setShowForgotForm(false);
-            setOtpSent(false);
-            setOtp("");
-          }}>Back to Login</p>
-        </form>
-      ) : (
-        <form onSubmit={handleResetPassword} className={styles.formdiv}>
-          <h2 className={styles.authtitle}>Reset Password</h2>
-
-          <div className={styles.authinputfield}>
-            <input
-              type="password"
-              placeholder="New Password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className={styles.authinputfield}>
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-          </div>
-
-          <button type="submit" className={styles.authbtn}>Change Password</button>
-          <p className={styles.authforgot} onClick={() => {
-            setShowForgotForm(false);
-            setOtpSent(false);
-            setIsOtpVerified(false);
-            setOtp("");
-            setForgotEmail("");
-            setNewPassword("");
-            setConfirmPassword("");
-          }}>Back to Login</p>
-        </form>
+          <div className={styles['signuprightimage']} style={{ backgroundImage: `url(${SignUpPageImage})` }}></div>
+        </div>
       )}
     </div>
-  );
+  )
 }

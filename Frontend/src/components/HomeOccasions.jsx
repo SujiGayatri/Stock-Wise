@@ -1,12 +1,14 @@
 import { useNavigate, Link } from "react-router-dom";
 import Loader from "../pages/Loader";
 import { useState } from "react";
-import BASE_URL from "../Utils/config";
+// import BASE_URL from "../Utils/config";
+const BASE_URL = import.meta.env.VITE_API_URL || "https://stock-wise-backend.onrender.com";
 
+console.log("BASE_URL:", import.meta.env.VITE_API_URL);
 const HomeOccasions = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-
+  
   const womenList = [
     "Party Wear",
     "Casual Wear",
